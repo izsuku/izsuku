@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,53 +8,136 @@
   <!-- Link to external CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="container">
+  <div class="container">
 
-  <h1>Izsuku Notebook</h1>
-  
-  <section class="fade">
-    <h2>Hero’s Journal</h2>
-    <p>Every hero begins with nothing but a spark inside. I write my thoughts here, my struggles, and the lessons learned from every encounter.</p>
-    <p>This notebook is not just paper; it’s a map of my growth, every line a step closer to being the hero I dream to be.</p>
-  </section>
+    <h1>Izsuku Notebook</h1>
 
-  <section class="fade">
-    <h2>All Might — Symbol of Peace</h2>
-    <p>He is more than a hero. A symbol that reminds the world that justice and hope exist, even in the darkest moments.</p>
-    <div class="quote">“Whether you win or lose, never give up on saving others.”</div>
-  </section>
+    <section class="fade">
+      <h2>Hero’s Journal</h2>
+      <p>Every hero begins with nothing but a spark inside. I write my thoughts here, my struggles, and the lessons
+        learned from every encounter.</p>
+      <p>This notebook is not just paper; it’s a map of my growth, every line a step closer to being the hero I dream to
+        be.</p>
+    </section>
 
-  <section class="fade">
-    <h2>Izuku Midoriya — The Inheritor</h2>
-    <p>Quirkless at birth, but not powerless. Every step, every challenge, every failure fuels the heart of a hero.</p>
-    <p>This is my journey, written here — a record of courage, chaos, and quiet determination.</p>
-  </section>
+    <!-- ALL Might  -->
+    <section class="fade">
+      <h2>All Might — Symbol of Peace</h2>
+      <p>He is more than a hero. A symbol that reminds the world that justice and hope exist, even in the darkest
+        moments.</p>
+      <div class="quote">“Whether you win or lose, never give up on saving others.”</div>
 
-  <section class="fade">
-    <h2>A Hero Born from Chaos</h2>
-    <p>The path is never easy. But even when the world breaks around me, my pen writes, my heart beats, and my spirit reaches for Plus Ultra.</p>
-  </section>
 
-  <footer>© 2025 Izsuku Notebook | Fan Tribute</footer>
-</div>
+      <!-- Character image -->
+      <div class="character-img-container">
+        <img src="allmight.png" alt="All Might Sketch" class="character-img">
+      </div>
 
-<script>
-// Fade-in scroll animation
-const faders = document.querySelectorAll('.fade');
-const appearOptions = {threshold: 0.2, rootMargin: '0px 0px -50px 0px'};
-const appearOnScroll = new IntersectionObserver(function(entries, observer){
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, appearOptions);
+    </section>
 
-faders.forEach(fader => {appearOnScroll.observe(fader);});
-</script>
+
+    <!-- Izuku Midoriya -->
+    <section class="fade">
+      <h2>Izuku Midoriya — The Inheritor</h2>
+      <p>Quirkless at birth, but not powerless. Every step, every challenge, every failure fuels the heart of a hero.
+      </p>
+      <div class="quote">“I want to be a hero who saves everyone, no matter what.”</div>
+
+        <!-- Character image -->
+      <div class="character-img-container">
+        <img src="izuku2.png" alt="All Might Sketch" class="character-img">
+      </div>
+    </section>
+
+
+
+    <!-- Katsuki Bakugo -->
+    <section class="fade">
+      <h2>Katsuki Bakugo — Explosive Talent</h2>
+      <p>A fierce rival, a brilliant fighter, and someone whose explosive personality matches his Quirk.</p>
+      <div class="quote">“I will surpass everyone and become number one!”</div>
+
+        <!-- Character image -->
+      <div class="character-img-container">
+        <img src="Bakugo2.png" alt="All Might Sketch" class="character-img">
+      </div>
+
+    </section>
+
+    <!-- Shoto Todoroki -->
+    <section class="fade">
+      <h2>Shoto Todoroki — Fire and Ice</h2>
+      <p>A hero caught between past trauma and personal growth, mastering both fire and ice with precision.</p>
+      <div class="quote">“I’ll become a hero on my own terms, not just to surpass my father.”</div>
+
+        <!-- Character image -->
+      <div class="character-img-container">
+        <img src="Shoto.png" alt="All Might Sketch" class="character-img">
+      </div>
+    </section>
+
+    <!-- Ochaco Uraraka -->
+    <section class="fade">
+      <h2>Ochaco Uraraka — Gravity’s Hope</h2>
+      <p>Her cheerful personality hides a determined hero ready to lift others up—literally and metaphorically.</p>
+      <div class="quote">“I want to be a hero who can support and protect everyone.”</div>
+
+        <!-- Character image -->
+      <div class="character-img-container">
+        <img src="Uraraka2.png" alt="All Might Sketch" class="character-img">
+      </div>
+    </section>
+
+
+    
+
+    <!-- Shelf Izuku Midoriya -->
+    <!-- 
+    <section class="fade">
+      <h2>Izuku Midoriya — The Inheritor</h2>
+      <p>Quirkless at birth, but not powerless. Every step, every challenge, every failure fuels the heart of a hero.
+      </p>
+      <p>This is my journey, written here — a record of courage, chaos, and quiet determination.</p>
+
+    </section>
+
+    -->
+
+
+
+
+
+    <!-- END HERE HEROES SECTION -->
+
+
+    <section class="fade">
+      <h2>A Hero Born from Chaos</h2>
+      <p>The path is never easy. But even when the world breaks around me, my pen writes, my heart beats, and my spirit
+        reaches for Plus Ultra.</p>
+    </section>
+
+    <footer>© 2025 Izsuku Notebook | Fan Tribute</footer>
+  </div>
+
+  <script>
+    // Fade-in scroll animation
+    const faders = document.querySelectorAll('.fade');
+    const appearOptions = { threshold: 0.2, rootMargin: '0px 0px -50px 0px' };
+    const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => { appearOnScroll.observe(fader); });
+  </script>
 
 </body>
+
 </html>
