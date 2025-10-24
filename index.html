@@ -1,36 +1,214 @@
----
-title: index.html
-created: '2025-10-24T04:06:18.802Z'
-modified: '2025-10-24T04:06:44.762Z'
----
-
-Index.html
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IZSUKU — A Hero Born From Chaos</title>
+  <meta name="description" content="Izsuku — a My Hero Academia fan hub: edits, hero stats, and cinematic highlights. Plus Ultra edits and Deku-notebook vibe." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --hero-green:#3EB370; /* primary */
+      --hero-green-deep:#2E8B57;
+      --hero-red:#E01A22; /* accent */
+      --hero-yellow:#FFD200; /* small accents */
+      --bg:#071023; /* deep navy, not grey */
+      --card:#0F2130;
+      --muted:#BEE7D0;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+    }
+    /* Reset-ish */
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Nunito',system-ui,Segoe UI,Arial; background:linear-gradient(180deg,#031021 0%, #071023 60%); color: #EAF7EE}
+    a{color:var(--hero-yellow);text-decoration:none}
+    .wrap{max-width:980px;margin:40px auto;padding:28px}
+
+    header{display:flex;align-items:center;gap:18px}
+    .logo-mark{width:84px;height:84px;border-radius:14px;background:linear-gradient(135deg,var(--hero-green),#1db164);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 30px rgba(50,200,120,0.08), inset 0 -6px 18px rgba(0,0,0,0.25)}
+    .logo-mark svg{width:56px;height:56px;filter:drop-shadow(0 6px 18px rgba(0,0,0,0.35));transform:translateY(-2px)}
+
+    h1{font-family:'Space Grotesk',sans-serif;font-size:38px;margin:0;letter-spacing:1px}
+    .tagline{font-size:14px;color:var(--muted);margin-top:6px}
+
+    /* scribble underline */
+    .scribe{display:inline-block;position:relative;padding-bottom:6px}
+    .scribe:after{content:'';position:absolute;left:0;right:0;bottom:0;height:8px;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="8" viewBox="0 0 160 8"><path d="M0 4c20-4 40 4 60 0s40-4 60 0s40 4 60 0" fill="none" stroke="%233EB370" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>');background-repeat:repeat-x;background-position:0 100%;opacity:0.95;transform-origin:left;animation:scribble 1s ease both}
+    @keyframes scribble{0%{transform:scaleX(0);opacity:0}100%{transform:scaleX(1);opacity:1}}
+
+    /* Top hero area */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:26px;margin-top:24px}
+    .card{background:linear-gradient(180deg,var(--card), rgba(10,20,30,0.6));border-radius:12px;padding:18px;box-shadow:0 10px 40px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .about p{color:var(--muted);line-height:1.5;margin:0}
+
+    .stats{margin-top:18px;display:flex;flex-direction:column;gap:8px}
+    .stat{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:8px;background:var(--glass)}
+    .stat b{color:var(--hero-green)}
+
+    /* right column dp */
+    .dp{display:flex;flex-direction:column;align-items:center;gap:12px}
+    .dp-preview{width:320px;height:320px;border-radius:12px;background:linear-gradient(135deg,rgba(62,179,112,0.12),rgba(224,26,34,0.06));display:flex;align-items:center;justify-content:center;position:relative;border:1px solid rgba(255,255,255,0.04)}
+    .dp-preview img{width:86%;height:86%;object-fit:cover;border-radius:8px;box-shadow:0 16px 50px rgba(0,0,0,0.6)}
+    .dp-actions{display:flex;gap:8px}
+    .btn{background:linear-gradient(180deg,var(--hero-green),var(--hero-green-deep));border:none;padding:10px 14px;border-radius:8px;color:#052217;font-weight:700;cursor:pointer}
+    .btn.alt{background:transparent;color:var(--hero-green);border:1px solid rgba(62,179,112,0.12)}
+
+    /* featured edits */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .thumb{background:var(--glass-2);border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,0.02);min-height:120px;display:flex;flex-direction:column;gap:8px}
+    .thumb img{width:100%;height:90px;object-fit:cover;border-radius:6px}
+    .thumb .t{font-weight:700;font-size:13px}
+    .thumb .s{color:var(--muted);font-size:12px}
+
+    footer{margin-top:30px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media(max-width:980px){.hero{grid-template-columns:1fr}.dp-preview{width:100%;height:260px}.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:520px){.grid{grid-template-columns:1fr}}
+
+    /* subtle animated lightning spark */
+    .spark{position:absolute;right:12px;top:12px;width:18px;height:18px;border-radius:4px;background:linear-gradient(180deg,var(--hero-yellow),#fff);filter:blur(4px);opacity:0.9;transform:rotate(18deg);box-shadow:0 6px 30px rgba(255,210,0,0.12)}
+
+    /* notebook scribble style block */
+    .notebook{background:repeating-linear-gradient(transparent, transparent 22px, rgba(255,255,255,0.012) 22px);border-radius:10px;padding:12px;border:1px dashed rgba(255,255,255,0.03)}
+
+    /* small hover */
+    .thumb:hover{transform:translateY(-6px);transition:transform 220ms ease}
+  </style>
 </head>
 <body>
+  <div class="wrap">
     <header>
-        <h1>Welcome to My Page</h1>
-        <p>This is a simple GitHub Pages site.</p>
+      <div class="logo-mark" aria-hidden>
+        <!-- lightning + I mark -->
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+          <rect width="64" height="64" rx="10" fill="url(#g)"/>
+          <path d="M36 10 L24 38 L34 38 L20 54 L44 26 L34 26 L36 10Z" fill="#082816" stroke="#E6F9ED" stroke-opacity="0.18" />
+          <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#64E089"/><stop offset="1" stop-color="#2EBE6B"/></linearGradient></defs>
+        </svg>
+      </div>
+      <div>
+        <h1>IZSUKU <span style="color:var(--hero-red);font-weight:700;letter-spacing:1px;margin-left:8px;font-size:18px">•</span></h1>
+        <div class="tagline scribe">A Hero Born From Chaos</div>
+      </div>
     </header>
 
-    <main>
-        <button id="clickMe">Click Me!</button>
-        <p id="message"></p>
-    </main>
+    <section class="hero">
+      <div class="card about">
+        <p>Welcome — this is <strong>Izsuku</strong>, a fan‑made hub inspired by the Deku notebook vibe. Edits, hero stats, and curated moments for the Plus Ultra crowd. Built with love for motion, FX, and the small heartbeat that makes heroes human.</p>
+
+        <div class="stats">
+          <div class="stat"><span>Quirk</span><b>Edit Mastery</b></div>
+          <div class="stat"><span>Specialty</span><b>FX-Heavy Shorts & MHA Highlights</b></div>
+          <div class="stat"><span>Base</span><b>YouTube · TikTok · IG</b></div>
+          <div class="stat"><span>Alignment</span><b>Tsumashi Universe</b></div>
+        </div>
+
+        <div style="margin-top:18px" class="notebook">
+          <strong style="color:var(--hero-green)">Notes:</strong>
+          <ul style="margin:8px 0 0 18px;color:var(--muted);line-height:1.5">
+            <li>Keep captions short — punch the first 1s.</li>
+            <li>Use green glow for major hits, red for rival beats.</li>
+            <li>Export at 30fps for smooth motion on mobile.</li>
+          </ul>
+        </div>
+
+        <div style="margin-top:16px;display:flex;gap:10px">
+          <a class="btn" href="#edits" onclick="scrollToSection('edits')">Featured Edits</a>
+          <a class="btn alt" href="#contact" onclick="scrollToSection('contact')">Contact / Collab</a>
+        </div>
+      </div>
+
+      <aside class="card dp">
+        <div class="dp-preview">
+          <div class="spark" title="Plus Ultra"></div>
+          <!-- placeholder DP: replace with your image by changing src -->
+          <img id="dpImg" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=000" alt="Izsuku DP preview" />
+        </div>
+        <div style="text-align:center;color:var(--muted);font-size:13px">Izsuku • Edit Lab</div>
+        <div class="dp-actions">
+          <button class="btn" onclick="downloadDP()">Download DP</button>
+          <button class="btn alt" onclick="randomizeDP()">Randomize Mood</button>
+        </div>
+      </aside>
+    </section>
+
+    <section id="edits" class="card" style="margin-top:22px">
+      <h3 style="margin:0 0 12px 0;font-family:'Space Grotesk'">Featured Edits</h3>
+      <div class="grid">
+        <div class="thumb">
+          <img src="https://via.placeholder.com/400x230.png?text=Edit+1" alt="edit thumbnail">
+          <div class="t">When Power Breaks Limits</div>
+          <div class="s">S1 aesthetic cut • 0:00–0:28</div>
+        </div>
+        <div class="thumb">
+          <img src="https://via.placeholder.com/400x230.png?text=Edit+2" alt="edit thumbnail">
+          <div class="t">The Cost of a Hero's Smile</div>
+          <div class="s">Slow-mo emotional beat • 0:10–0:40</div>
+        </div>
+        <div class="thumb">
+          <img src="https://via.placeholder.com/400x230.png?text=Edit+3" alt="edit thumbnail">
+          <div class="t">Quirkless, Not Hopeless</div>
+          <div class="s">Underdog montage • 0:05–0:22</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="card" style="margin-top:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <div style="flex:1;min-width:220px">
+        <h4 style="margin:0 0 8px 0">Collab / Contact</h4>
+        <p style="margin:0;color:var(--muted)">Want a Tsumashi-style edit or custom Izsuku artwork? DM on socials or email below.</p>
+        <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+          <a class="btn alt" href="https://www.youtube.com" target="_blank">YouTube</a>
+          <a class="btn alt" href="https://www.tiktok.com" target="_blank">TikTok</a>
+          <a class="btn alt" href="https://www.instagram.com" target="_blank">Instagram</a>
+        </div>
+      </div>
+
+      <div style="min-width:200px">
+        <label style="display:block;color:var(--muted);font-size:13px">Email</label>
+        <div style="display:flex;gap:8px;margin-top:6px">
+          <input id="mail" type="text" placeholder="yourname@example.com" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" />
+          <button class="btn" onclick="copyMail()">Copy</button>
+        </div>
+      </div>
+    </section>
 
     <footer>
-        <p>&copy; 2025 My GitHub Page</p>
+      <div>⚡ Plus Ultra • © Izsuku — Built on Chaos & Code.</div>
+      <div style="margin-top:8px;color:var(--muted);font-size:12px">Made for fans. Replace images & links with your own before publishing.</div>
     </footer>
+  </div>
 
-    <script src="script.js"></script>
+  <script>
+    // small helpers
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(!el) return; el.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+
+    function copyMail(){
+      const v = document.getElementById('mail').value || 'contact@izsuku.example';
+      navigator.clipboard?.writeText(v).then(()=>alert('Email copied: '+v), ()=>alert('Copy failed.'));
+    }
+
+    function downloadDP(){
+      const img = document.getElementById('dpImg').src;
+      const a = document.createElement('a'); a.href = img; a.download = 'izsuku-dp.png'; document.body.appendChild(a); a.click(); a.remove();
+    }
+
+    const moods = [
+      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=000',
+      'https://images.unsplash.com/photo-1520975913784-8a1a2bbf2f6b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=000',
+      'https://images.unsplash.com/photo-1503264116251-35a269479413?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=000'
+    ];
+
+    function randomizeDP(){
+      const i = Math.floor(Math.random()*moods.length);
+      document.getElementById('dpImg').src = moods[i];
+    }
+  </script>
 </body>
 </html>
-
-
