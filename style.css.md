@@ -1,0 +1,39 @@
+---
+title: style.css
+created: '2025-10-24T04:06:49.970Z'
+modified: '2025-10-24T04:07:10.727Z'
+---
+
+style.css
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 50px 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
